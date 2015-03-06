@@ -1,5 +1,5 @@
 # hexchat-imagepaste
-Paste images from your clipboard using imgur.com by pressing `Alt +`
+Paste images from your clipboard using imgur.com by pressing `Alt` + `+`
 
 Windows only
 

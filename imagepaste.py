@@ -32,7 +32,7 @@ def imagepaste(word, word_eol, userdata):
 	remove(tempfn)
 	
 	cmd = "say " + up['link'].replace("i.imgur.com", "b.bildgur.de")
-	print("Deletelink: http://imgur.com/delete/" + up['deletehash'].replace("imgur.com", "bildgur.de"))
+	print("Deletelink: http://bildgur.de/delete/" + up['deletehash'])
 	
 	hexchat.command(cmd)
 	return hexchat.EAT_ALL

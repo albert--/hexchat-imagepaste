@@ -6,7 +6,7 @@ from imgurpython import ImgurClient
 
 __module_name__ = "hexchat-imagepaste"
 __module_author__ = "albert--"
-__module_version__ = "1.0.1"
+__module_version__ = "1.0.2"
 __module_description__ = "Paste images from your clipboard using imgur.com by pressing Alt +"
 
 client_id = "YOUR CLIENT ID"
@@ -20,7 +20,8 @@ def imagepaste(word, word_eol, userdata):
 		tempf = tempfile.NamedTemporaryFile(delete=False)
 		img = ImageGrab.grabclipboard()
 		img.save(tempf, "PNG")
-	except:
+	except Exception as e:
+		print("Exception: " + e)
 		return
 	
 	tempfn = tempf.name
@@ -31,8 +32,8 @@ def imagepaste(word, word_eol, userdata):
 	tempf.close()
 	remove(tempfn)
 	
-	cmd = "say " + up['link'].replace("i.imgur.com", "b.bildgur.de")
-	print("Deletelink: http://bildgur.de/delete/" + up['deletehash'])
+	cmd = "say " + up['link'].replace("http://", "https://")
+	print("Deletelink: https://imgur.com/delete/" + up['deletehash'])
 	
 	hexchat.command(cmd)
 	return hexchat.EAT_ALL
